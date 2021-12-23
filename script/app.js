@@ -69,7 +69,7 @@ $(document).ready(function () {
   baseChart3();
 
   //footer info
-  fetch('http://covid.gpconsulting.be/api/v1/status', requestOptions)
+  fetch(URL + '/api/v1/status', requestOptions)
     .then((data) => {
       return data.json();
     })
