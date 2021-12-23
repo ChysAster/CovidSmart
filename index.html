@@ -1,137 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CovidSmart</title>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/PNG/favicon2.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/PNG/favicon1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/PNG/favicon2.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/PNG/favicon1.png" />
+
+    <link rel="stylesheet" href="./css/screen.css" />
+
+    <script defer src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="./css/screen.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="./script/utils.js"></script>
+    <script defer src="./script/charts.js"></script>
     <script defer src="./script/app.js"></script>
 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>    
-    <script type="text/javascript">     
-    $(document).ready(function () {
-        //open popup
-        $("#pop").click(function () {
-            $("#overlay_form").fadeIn(1000);
-            positionPopup();
-        });
     
-        //close popup
-        $("#close").click(function () {
-            $("#overlay_form").fadeOut(500);
-        });
-    });
-    
-    //position the popup at the center of the page
-    function positionPopup() {
-        if (!$("#overlay_form").is(':visible')) {
-            return;
-        }
-        $("#overlay_form").css({
-            left: ($(window).width() - $('#overlay_form').width()) / 2,
-            top: ($(window).width() - $('#overlay_form').width()) / 7,
-            position: 'absolute'
-        });
-    }
-    
-    //maintain the popup at center of the page when browser resized
-    $(window).bind('resize', positionPopup); 
-    </script>
+  </head>
 
-</head>
-<body class="dark-mode">
-  <div>
-    
-  <h1 class="titel"> <img src="./img/PNG/favicon1.png" alt="" height="32px"> Welkom bij CovidSmart</h1>
-
-</div>
-  <div class="container">
-    <header class="header">
-     
-        <div  id="one">
-          <nav >
-            <div class="dropdown">
-              <a href="#" class="dropdown-cta" onclick="openDropdown(this)">
-                <span class="dropdown-cta-label">Kies Regio</span>
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="57.265" height="30.845" viewBox="0 0 57.265 30.845"><defs><style>.a{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px;}</style></defs><path class="a" d="M11339.016,2335.5l27.566,25.219,24.046-25.219" transform="translate(-11336.191 -2332.677)"/></svg>
-                </span>
-              </a>
-              <div class="dropdown-items">
-        <!--         <div class="dropdown-items-wrpr"> -->
-                <a href="#" id="pop">Brussel</a>
-                <br><br><br>
-                <a href="#">Vlaanderen</a>
-                <br><br><br>
-                <a href="#">Wallonië</a>
-                
-        <!--         </div> -->
-              </div>
+  <body class="dark-mode">
+    <header>
+      <div>
+        <h1 class="titel"><img src="./img/PNG/favicon1.png" alt="" height="32px" /> Welkom bij CovidSmart</h1>
+      </div>
+      <div id="dropdown">
+        <nav>
+          <div class="dropdown">
+            <a href="#" class="dropdown-cta" onclick="openDropdown(this)">
+              <span class="dropdown-cta-label">Kies Regio</span>
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="57.265" height="30.845" viewBox="0 0 57.265 30.845">
+                  <path class="a" d="M11339.016,2335.5l27.566,25.219,24.046-25.219" transform="translate(-11336.191 -2332.677)" />
+                </svg>
+              </span>
+            </a>
+            <div class="dropdown-items">
+              <a href="#" class="dropdown-regio-item dropdown-regio-item-brussels">Brussel</a>
+              <a href="#" class="dropdown-regio-item dropdown-regio-item-flanders">Vlaanderen</a>
+              <a href="#" class="dropdown-regio-item dropdown-regio-item-wallonia">Wallonië</a>
             </div>
-          </nav>
-        </div>
-      </header>
-      <article class="content">
-        <!-- <h1>test</h1> -->
-      </article>
-  <!-- <div>
-      <button onclick="myFunction()">Toggle dark mode</button>
-    </div> -->
-  </div>
-  <div>
-  
-    <div class="dark-mode" id="overlay_form" style="display:none">
-      
-        
-     
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="dark-mode" id="overlay_form" style="display: none">
       <div id="sluiten" class="sluiten">
         <div class="grid-item1">
-          <h1>Antwerpen</h1>
+          <h1 class="overlay-title"></h1>
         </div>
         <div class="grid-item2">
           <button class="close" id="close" type="button">Close</button>
         </div>
-        
-        
       </div>
-
 
       <div id="grafieken">
         <div class="grid-item-grafiek1">
-        <canvas class="chart" id="myChart" width="200" height="200"></canvas>
+          <canvas class="chart" id="focusChart1" width="200" height="200"></canvas>
+          <p>Aantal doden per datum</p>
+        </div>
+        <div class="grid-item-grafiek2">
+          <canvas class="chart" id="focusChart2" width="20px" height="20px"></canvas>
+          <p>Aantal vaccinaties per datum</p>
+        </div>
+        <div class="grid-item-grafiek3">
+          <canvas class="chart" id="focusChart3" width="20px" height="20px"></canvas>
+          <p>Aantal ziekenhuisopnames en ziekenhuis ontslagen </p>
+        </div>
       </div>
-      <div class="grid-item-grafiek2">
-        <canvas class="chart" id="myChart2" width="20px" height="20px"></canvas>
-      </div>
-      <div class="grid-item-grafiek3">
-        <canvas class="chart" id="myChart3" width="20px" height="20px"></canvas>
-      </div>
-      </div>
-      
-      
-      
-      
     </div>
-    
 
-</div>
-    
-    
-</body>
-<footer class="footer">
-  
-  
-  <div class="footer">COVID_API &emsp; Run time: &emsp; Version:</div>
-</footer>
+
+    <div class="container">
+      <div class="total" id="total">
+        <div class="grid1 grid-item">Total Vacinated:</div>
+        <div class="grid2 grid-item">Total Deaths:</div>
+        <div class="grid3 grid-item">Total Hospitalizations:</div>
+      </div>
+
+      <div class="pie" id="pie"></div>
+
+      <div id="grafiekenLijn1">
+        <div class="grid-item-graph1">
+          <canvas class="chart" id="baseChart1" width="200" height="200"></canvas>
+          <p>Aantak ziekenhuisopnames per week</p>
+        </div>
+        <div class="grid-item-graph2">
+          <canvas class="chart" id="baseChart2" width="20px" height="20px"></canvas>
+          <p>Aantal vaccinaties op basis van datum</p>
+        </div>
+        <div class="grid-item-graph3">
+          <canvas class="chart" id="baseChart3" width="20px" height="20px"></canvas>
+          <p>Aantal besmettingen per gemeente</p>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="footer">COVID API &emsp; Run time: &emsp; Version:</div>
+  </footer>
 </html>
