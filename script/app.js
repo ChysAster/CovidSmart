@@ -1,5 +1,5 @@
 //Algemene URL
-const URL = `http://covid.gpconsulting.be`;
+const URL = `https://covid.gpconsulting.be`;
 
 // Base request options
 var requestOptions = {
