@@ -185,6 +185,24 @@ p {
   }
 }
 
+@media (max-width: 750px) {
+  #grafieken {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  }
+  #grafiekenLijn1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  }
+  #titelsBase {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  }
+  #total {
+    grid-template-columns: repeat(1, minmax(18.75rem, 1fr));
+  }
+}
+
 @media (max-width: 320px) {
   #grafieken {
     display: grid;
