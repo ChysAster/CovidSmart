@@ -162,6 +162,9 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
   }
+  #total {
+    grid-template-columns: repeat(1, minmax(18.75rem, 1fr));
+  }
 }
 
 @media (max-width: 350px) {
@@ -177,6 +180,9 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
   }
+  #total {
+    grid-template-columns: repeat(1, minmax(18.75rem, 1fr));
+  }
 }
 
 @media (max-width: 320px) {
@@ -191,6 +197,9 @@ p {
   #titelsBase {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  }
+  #total {
+    grid-template-columns: repeat(1, minmax(18.75rem, 1fr));
   }
 }
 
