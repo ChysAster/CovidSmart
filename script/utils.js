@@ -1,7 +1,7 @@
 // Utility functies
-function norm(value, min, max) {
-  return (value - min) / (max - min);
-}
+// function norm(value, min, max) {
+//   return (value - min) / (max - min);
+// }
 
 function translateRegio(input) {
   let regio = undefined;
